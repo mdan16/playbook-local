@@ -1,0 +1,27 @@
+---
+- name: apt update & upgrade
+  become: True
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: Install apt packages
+  become: True
+  apt:
+    name:
+      - vim
+      - zsh
+      - git
+      - gdebi
+      - virtualbox
+      - virtualbox-ext-pack
+      - vagrant
+
+        #- name: Clone dotfiles
+        #  git:
+        #    repo: "https://github.com/mdan16/dotfiles.git"
+        #    dest: ~/dotfiles
+        #    
+#- name: Set symbolic link of dotfiles
+#  shell: ~/dotfiles/setup.sh
+
