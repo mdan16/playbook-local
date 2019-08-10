@@ -1,0 +1,8 @@
+---
+- name: Install
+  snap:
+    name: code
+    classic: yes
+    state: present
+  become: True
+

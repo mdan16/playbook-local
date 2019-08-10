@@ -13,9 +13,6 @@
       - zsh
       - git
       - gdebi
-      - virtualbox
-      - virtualbox-ext-pack
-      - vagrant
 
         #- name: Clone dotfiles
         #  git:

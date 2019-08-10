@@ -3,4 +3,7 @@
   connection: local
   roles:
     - common
+    - vscode
+    - virtualbox
+    - vagrant
 
