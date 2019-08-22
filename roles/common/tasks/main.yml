@@ -13,12 +13,15 @@
       - zsh
       - git
       - gdebi
+      - build-essential
+      - python3
+      - python-pip
+      - python3-venv
 
-        #- name: Clone dotfiles
-        #  git:
-        #    repo: "https://github.com/mdan16/dotfiles.git"
-        #    dest: ~/dotfiles
-        #    
-#- name: Set symbolic link of dotfiles
-#  shell: ~/dotfiles/setup.sh
-
+- name: Clone dotfiles
+  git:
+    repo: "https://github.com/mdan16/dotfiles.git"
+    dest: ~/dotfiles
+    
+- name: Setup dotfiles
+  shell: ~/dotfiles/init.sh

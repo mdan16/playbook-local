@@ -1,0 +1,11 @@
+---
+- name: Get deb
+  get_url:
+    url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    dest: ~/
+  become: True
+
+- name: Install from deb
+  apt:
+    deb: ~/google-chrome-stable_current_amd64.deb
+  become: True

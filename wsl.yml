@@ -3,8 +3,4 @@
   connection: local
   roles:
     - common
-    - google-chrome
-    - vscode
-    - virtualbox
     - vagrant
-    - hyper
