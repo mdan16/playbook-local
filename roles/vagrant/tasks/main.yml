@@ -1,12 +1,12 @@
 ---
 - name: Get deb
   get_url:
-    url: https://releases.hashicorp.com/vagrant/2.2.5/vagrant_2.2.5_x86_64.deb
-    dest: ~/
+    url: https://releases.hashicorp.com/vagrant/2.2.8/vagrant_2.2.8_x86_64.deb
+    dest: /tmp/
   become: True
 
 - name: Install from deb
   apt:
-    deb: ~/vagrant_2.2.5_x86_64.deb
+    deb: /tmp/vagrant_2.2.8_x86_64.deb
   become: True
 

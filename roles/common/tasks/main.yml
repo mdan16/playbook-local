@@ -12,6 +12,7 @@
       - vim
       - zsh
       - git
+      - aptitude
       - gdebi
       - build-essential
       - python3

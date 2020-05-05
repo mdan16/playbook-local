@@ -2,11 +2,11 @@
 - name: Get deb
   get_url:
     url: https://download.virtualbox.org/virtualbox/6.0.10/virtualbox-6.0_6.0.10-132072~Ubuntu~bionic_amd64.deb
-    dest: ~/virtualbox-6.0_6.0.10-132072~Ubuntu~bionic_amd64.deb
+    dest: /tmp/virtualbox-6.0_6.0.10-132072~Ubuntu~bionic_amd64.deb
   become: True
 
 - name: Install from deb
   apt:
-    deb: ~/virtualbox-6.0_6.0.10-132072~Ubuntu~bionic_amd64.deb
+    deb: /tmp/virtualbox-6.0_6.0.10-132072~Ubuntu~bionic_amd64.deb
   become: True
 

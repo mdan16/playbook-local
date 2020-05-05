@@ -2,10 +2,10 @@
 - name: Get deb
   get_url:
     url: https://github.com/zeit/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
-    dest: ~/
+    dest: /tmp/
   become: True
 
 - name: Install from deb
   apt:
-    deb: ~/hyper_3.0.2_amd64.deb
+    deb: /tmp/hyper_3.0.2_amd64.deb
   become: True
