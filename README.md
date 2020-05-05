@@ -1,6 +1,6 @@
 # playbook-local
 
-ローカル環境のセットアップ用Playbook。
+ローカル環境構築用のPlaybook
 
 ## Target
 
