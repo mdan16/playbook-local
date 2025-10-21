@@ -1,8 +1,17 @@
 ---
+# Ubuntu/Debian tasks
 - name: Install
   snap:
     name: code
     classic: yes
     state: present
   become: True
+  when: ansible_os_family == "Debian"
+
+# macOS tasks
+- name: Install Visual Studio Code
+  community.general.homebrew_cask:
+    name: visual-studio-code
+    state: present
+  when: ansible_os_family == "Darwin"
 

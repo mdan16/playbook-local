@@ -1,8 +1,17 @@
 ---
+# Ubuntu/Debian tasks
 - name: Install
   snap:
     name: slack
     classic: yes
     state: present
   become: True
+  when: ansible_os_family == "Debian"
+
+# macOS tasks
+- name: Install Slack
+  community.general.homebrew_cask:
+    name: slack
+    state: present
+  when: ansible_os_family == "Darwin"
 

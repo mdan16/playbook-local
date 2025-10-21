@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - common
+    - google-chrome
+    - vscode
+    - vagrant
+    - hyper
+    - slack

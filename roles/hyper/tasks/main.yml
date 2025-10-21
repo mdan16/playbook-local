@@ -1,11 +1,21 @@
 ---
+# Ubuntu/Debian tasks
 - name: Get deb
   get_url:
     url: https://github.com/zeit/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
     dest: /tmp/
   become: True
+  when: ansible_os_family == "Debian"
 
 - name: Install from deb
   apt:
     deb: /tmp/hyper_3.0.2_amd64.deb
   become: True
+  when: ansible_os_family == "Debian"
+
+# macOS tasks
+- name: Install Hyper
+  community.general.homebrew_cask:
+    name: hyper
+    state: present
+  when: ansible_os_family == "Darwin"

@@ -1,11 +1,21 @@
 ---
+# Ubuntu/Debian tasks
 - name: Get deb
   get_url:
     url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     dest: ~/
   become: True
+  when: ansible_os_family == "Debian"
 
 - name: Install from deb
   apt:
     deb: ~/google-chrome-stable_current_amd64.deb
   become: True
+  when: ansible_os_family == "Debian"
+
+# macOS tasks
+- name: Install Google Chrome
+  community.general.homebrew_cask:
+    name: google-chrome
+    state: present
+  when: ansible_os_family == "Darwin"

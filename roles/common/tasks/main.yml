@@ -1,9 +1,11 @@
 ---
+# Ubuntu/Debian tasks
 - name: apt update & upgrade
   become: True
   apt:
     upgrade: yes
     update_cache: yes
+  when: ansible_os_family == "Debian"
 
 - name: Install apt packages
   become: True
@@ -19,11 +21,24 @@
       - python3
       - python-pip
       - python3-venv
+  when: ansible_os_family == "Debian"
 
+# macOS tasks
+- name: Install Homebrew packages
+  community.general.homebrew:
+    name:
+      - vim
+      - zsh
+      - git
+      - python
+    state: present
+  when: ansible_os_family == "Darwin"
+
+# Common tasks
 - name: Clone dotfiles
   git:
     repo: "https://github.com/mdan16/dotfiles.git"
     dest: ~/dotfiles
-    
+
 - name: Setup dotfiles
   shell: ~/dotfiles/init.sh

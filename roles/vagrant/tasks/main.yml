@@ -1,12 +1,22 @@
 ---
+# Ubuntu/Debian tasks
 - name: Get deb
   get_url:
     url: https://releases.hashicorp.com/vagrant/2.2.8/vagrant_2.2.8_x86_64.deb
     dest: /tmp/
   become: True
+  when: ansible_os_family == "Debian"
 
 - name: Install from deb
   apt:
     deb: /tmp/vagrant_2.2.8_x86_64.deb
   become: True
+  when: ansible_os_family == "Debian"
+
+# macOS tasks
+- name: Install Vagrant
+  community.general.homebrew_cask:
+    name: vagrant
+    state: present
+  when: ansible_os_family == "Darwin"
 
